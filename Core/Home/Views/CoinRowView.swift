@@ -14,15 +14,15 @@ struct CoinRowView: View {
     var body: some View {
         HStack{
             //rank
-            Text("\(coin.marketCapRank ?? 1)")
+            Text("\(coin.marketCapRank)")
                 .font(.caption)
                 .foregroundColor(.gray)
+                .padding(.horizontal ,10)
             //image
-            Image(systemName: "\(coin.image)")
+            KFImage(URL(string: coin.image))
                 .resizable()
                 .scaledToFit()
                 .frame(width: 32 ,height: 32)
-                .foregroundColor(.orange)
             
             //coin name info
             VStack(alignment: .leading, spacing: 4){
@@ -41,15 +41,15 @@ struct CoinRowView: View {
             
             Spacer()
             VStack(alignment: .trailing, spacing: 4){
-                Text("\(coin.currentPrice)")
+                Text("\(coin.currentPrice.toCurrency())")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .padding(.leading,4)
                 
-                Text("\(coin.priceChangePercentage24H)")
+                Text(coin.priceChangePercentage24H.toPrecentString())
                     .font(.caption)
-                    .padding(.leading,4)
-                    .foregroundColor(.red)
+                    .padding(.leading,6)
+                    .foregroundColor(coin.priceChangePercentage24H > 0 ? .green : .red)
             }
             .padding(.leading,2)
         }
