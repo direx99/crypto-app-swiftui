@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct CoinRowView: View {
+    let coin: Coin
+
     var body: some View {
         HStack{
             //rank
-            Text("1")
+            Text("\(coin.marketCapRank ?? 1)")
                 .font(.caption)
                 .foregroundColor(.gray)
             //image
-            Image(systemName: "bitcoinsign.circle.fill")
+            Image(systemName: "\(coin.image)")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 32 ,height: 32)
@@ -23,12 +25,12 @@ struct CoinRowView: View {
             
             //coin name info
             VStack(alignment: .leading, spacing: 4){
-                Text("Bitcoin")
+                Text("\(coin.name)")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .padding(.leading,4)
                 
-                Text("BTC")
+                Text("\(coin.symbol.uppercased())")
                     .font(.caption)
                     .padding(.leading,4)
             }
@@ -37,13 +39,13 @@ struct CoinRowView: View {
             //coin price info
             
             Spacer()
-            VStack(alignment: .leading, spacing: 4){
-                Text("$20,424.00")
+            VStack(alignment: .trailing, spacing: 4){
+                Text("\(coin.currentPrice)")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .padding(.leading,4)
                 
-                Text("-4.42%")
+                Text("\(coin.priceChangePercentage24H)")
                     .font(.caption)
                     .padding(.leading,4)
                     .foregroundColor(.red)
@@ -55,8 +57,8 @@ struct CoinRowView: View {
     }
 }
 
-struct CoinRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        CoinRowView()
-    }
-}
+//struct CoinRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CoinRowView()
+//    }
+//}
