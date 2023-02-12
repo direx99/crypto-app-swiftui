@@ -15,7 +15,7 @@ struct HomeView: View {
             ScrollView(.vertical, showsIndicators: false) {
               // top moves
                 
-                TopMoversView()
+                TopMoversView(viewModel: viewModel)
                 
                 // all coins
                 
