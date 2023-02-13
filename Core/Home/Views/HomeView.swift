@@ -24,6 +24,7 @@ struct HomeView: View {
                 AllCoinView(viewModel: viewModel)
                 
             }
+            
             .navigationTitle("Live Prices")
         }
     }

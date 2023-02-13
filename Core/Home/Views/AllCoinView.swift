@@ -22,6 +22,7 @@ struct AllCoinView: View {
                     .font(.caption)
                 Spacer()
                 Text("Prices")
+                    .padding(.trailing,40)
                     
             }
             .font(.caption)
