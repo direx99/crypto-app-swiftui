@@ -12,23 +12,22 @@ struct CoinRowView: View {
     let coin: Coin
     
     var body: some View {
+        
+        
             
             HStack{
                 //rank
-                Text("\(coin.marketCapRank)")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .padding(.horizontal ,10)
+                
                 //image
                 KFImage(URL(string: coin.image))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 32 ,height: 32)
+                    .frame(width: 50 ,height: 50)
                 
                 //coin name info
                 VStack(alignment: .leading, spacing: 4){
                     Text("\(coin.name)")
-                        .font(.subheadline)
+                        .font(.title3)
                         .fontWeight(.semibold)
                         .padding(.leading,4)
                     
@@ -60,15 +59,19 @@ struct CoinRowView: View {
                 .padding(.leading,2)
                             
                 NavigationLink(destination: DetailView(coin: self.coin)) {
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(.gray)
-                                    .padding(.leading, 20)
+                               
                             }
-                            .navigationTitle("Live Price")
+                            
 
             }
-            .padding(.horizontal)
-            .padding(.vertical,4)
+            .padding(.horizontal,20)
+            .padding(.vertical,20)
+            .background(Color("CardGray"))
+            .cornerRadius(25)
+            .padding(.top,5)
+            .padding(.horizontal,10)
+
+        
         }
         
     }
