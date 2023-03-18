@@ -13,23 +13,9 @@ struct AllCoinView: View {
     
     var body: some View {
         VStack(alignment: .leading){
-            Text("All Coins")
-                .font(.headline)
-                .padding()
+           
             
-            HStack{
-                Text("Coin")
-                    .font(.caption)
-                Spacer()
-                Text("Prices")
-                    .padding(.trailing,40)
-                    
-            }
-            .font(.caption)
-            .foregroundColor(.gray)
-            .padding(.horizontal)
-            
-            
+    
             ScrollView{
                 VStack{
                     ForEach(viewModel.coins){ coin in

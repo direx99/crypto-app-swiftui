@@ -11,22 +11,30 @@ struct HomeView: View {
     @StateObject var viewModel = HomeModelView()
     
     var body: some View {
-        NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
-              // top moves
+        VStack(alignment: .center){
+            TopView()
+            
+                HStack(alignment: .top){
+                    Text("Top 10")
+                        .font(.title).fontWeight(.bold)
+                        .padding(.leading)
+                        .padding(.bottom,5)
+                        .padding(.top,30)
+                    
+                    Spacer()
+                }
+               
                 
-                //TopMoversView(viewModel: viewModel)
-                //TopMoversView(viewModel: viewModel)
-                
-                // all coins
-                
-                Divider()
-                TopView()
-                AllCoinView(viewModel: viewModel)
+            
+         
+            NavigationView {
+                ScrollView(.vertical, showsIndicators: false) {
+
+                    AllCoinView(viewModel: viewModel)
+                    
+                }
                 
             }
-            
-            
         }
     }
 }
