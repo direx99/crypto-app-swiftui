@@ -9,7 +9,15 @@ import SwiftUI
 
 struct TestView: View {
     var body: some View {
-        Text("This is test, World!")
+        VStack{
+            Text("Image")
+            HStack{
+                Text("Name")
+                Spacer()
+                Text("Bitcoin")
+                
+            }
+        }
     }
 }
 

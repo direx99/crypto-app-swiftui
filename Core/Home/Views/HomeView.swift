@@ -9,19 +9,20 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeModelView()
-    
+
     var body: some View {
         NavigationView {
 
         VStack(alignment: .center){
             HStack{
+                
+                Spacer()
                 NavigationLink(destination: UserProfile()) {
                     Image("UserImage")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50,height: 50)
                         .cornerRadius(21)
-                    Spacer()
                        
                     
                     
@@ -46,15 +47,15 @@ struct HomeView: View {
                 
             
          
-            NavigationView {
                 ScrollView(.vertical, showsIndicators: false) {
                     
-                    
-                    
                     AllCoinView(viewModel: viewModel)
+
+                    
+                    
                     
                 }
-            }
+            
             }
         }
         .padding(.bottom)
