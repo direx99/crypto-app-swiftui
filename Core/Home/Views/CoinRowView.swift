@@ -10,11 +10,8 @@ import Kingfisher
 
 struct CoinRowView: View {
     let coin: Coin
-    
     var body: some View {
-        
-        
-            
+       
             HStack{
                 //rank
                 
@@ -57,12 +54,12 @@ struct CoinRowView: View {
                     
                 }
                 .padding(.leading,2)
-                            
+                
                 NavigationLink(destination: DetailView(coin: self.coin)) {
-                               
-                            }
-                            
-
+                    
+                }
+                
+                
             }
             .padding(.horizontal,20)
             .padding(.vertical,20)
@@ -70,13 +67,14 @@ struct CoinRowView: View {
             .cornerRadius(25)
             .padding(.top,5)
             .padding(.horizontal,10)
-
-        
+            
+            
+            
         }
         
-    }
-
-
+    
+    
+}
 //struct CoinRowView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        CoinRowView()

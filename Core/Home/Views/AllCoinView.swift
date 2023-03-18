@@ -9,22 +9,33 @@ import SwiftUI
 
 struct AllCoinView: View {
     @StateObject var viewModel:HomeModelView
-
+    
+    
+    
+    
     
     var body: some View {
-        VStack(alignment: .leading){
-           
-            
-    
-            ScrollView{
-                VStack{
-                    ForEach(viewModel.coins){ coin in
-                        CoinRowView(coin: coin)
+        
+        if  viewModel.isLoaded{
+            VStack(alignment: .leading){
+                
+                
+                ScrollView{
+                    VStack{
+                        ForEach(viewModel.coins){ coin in
+                            CoinRowView(coin: coin)
+                        }
                     }
                 }
+                
             }
-        
+            
         }
+        else{
+            ProgressView()
+        }
+        
+        
     }
 }
 

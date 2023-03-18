@@ -11,6 +11,7 @@ class HomeModelView: ObservableObject {
     
     @Published var coins = [Coin]()
     @Published var topMovingCoins = [Coin]()
+    @Published var isLoaded = false
 
     
     init(){
@@ -26,10 +27,12 @@ class HomeModelView: ObservableObject {
             
             if let error = error{
                 print("Debug : error \(error.localizedDescription)")
+                self.isLoaded = false
                 return
             }
             if let response = response as? HTTPURLResponse{
                 print("Debug : Response code \(response.statusCode)")
+                self.isLoaded = true
 
             }
 
@@ -40,9 +43,12 @@ class HomeModelView: ObservableObject {
                 DispatchQueue.main.async {
                     self.coins = coins
                     self.configureTopMovingCoins()
+                    self.isLoaded = true
+
                 }
 
             } catch let error{
+                self.isLoaded = false
                 print("Debug : Error  \(error)")
 
             }
