@@ -12,6 +12,8 @@ struct TopView: View {
 
      var body: some View {
          VStack{
+            
+             
              UserData(num: 12712.78)
              ScrollView(.horizontal,showsIndicators: false){
                  HStack(alignment:.center){
