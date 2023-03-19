@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
+    init() {
+            UINavigationBar.appearance().tintColor = .red
+        }
     @StateObject var viewModel = HomeModelView()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
 
         VStack(alignment: .center){
             HStack{

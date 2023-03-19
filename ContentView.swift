@@ -11,12 +11,13 @@ struct ContentView: View {
     @State private var selectedTab = 0
 
     var body: some View {
-        VStack{
-            HomeView()
-        }
-        .background(Color("BgColor"))
+        
+        
+        HomeView()
+            .accentColor(.white)
     }
-}
+        
+    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

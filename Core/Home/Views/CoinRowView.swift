@@ -9,11 +9,14 @@ import SwiftUI
 import Kingfisher
 
 struct CoinRowView: View {
+    
     let coin: Coin
     @State private var isDetailViewActive = false
+    
+    
 
     var body: some View {
-        
+        NavigationStack{
             NavigationLink(destination: DetailView(coin: self.coin)) {
                 HStack{
                     //rank
@@ -64,7 +67,8 @@ struct CoinRowView: View {
                     
                 }
                 
-                
+                .accentColor(.white)
+
             }
             .padding(.horizontal,20)
             .padding(.vertical,20)
@@ -72,10 +76,12 @@ struct CoinRowView: View {
             .cornerRadius(25)
             .padding(.top,5)
             .padding(.horizontal,10)
+            .foregroundColor(.white)
             
             
-            
-        
+        }
+        .accentColor(.white)
+
         
     }
 }
