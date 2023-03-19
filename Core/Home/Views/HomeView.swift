@@ -57,8 +57,9 @@ struct HomeView: View {
                 }
             
             }
+        .background(Color("BgColor"))
+
         }
-        .padding(.bottom)
 
     }
 }

@@ -10,16 +10,14 @@ import SwiftUI
 struct TestView: View {
     var body: some View {
         VStack{
-            Text("Image")
-            HStack{
-                Text("Name")
-                Spacer()
-                Text("Bitcoin")
-                
-            }
+            
+            
+            
         }
     }
+    
 }
+
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
