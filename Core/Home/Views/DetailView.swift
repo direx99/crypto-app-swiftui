@@ -30,6 +30,7 @@ struct DetailView: View {
             //let integerPart2 = Int(fractionalPart.rounded(.down))
                 
             VStack{
+                ChartView(coin: coin)
                 Group{
                     Text("Current Price")
                         .foregroundColor(.gray)
@@ -39,14 +40,26 @@ struct DetailView: View {
 
 
                     HStack{
-                        Text("$\(priceIntString)")
+                        Text("$\(priceIntString).")
                             .font(.system(size: 40)).bold()
                             .foregroundColor(.white)
                         
                             .padding(.top,-5)
-                        Text("\(priceFloatString)")
-                            .font(.system(size: 30)).bold()
-                            .foregroundColor(.white)
+                        
+                        if(val2>1){
+                            Text("\(priceFloatString)")
+                                .font(.system(size: 30)).bold()
+                                .foregroundColor(.white)
+                                .padding(.leading,-10)
+                        }
+                        else{
+                            Text("0\(priceFloatString)")
+                                .font(.system(size: 30)).bold()
+                                .foregroundColor(.white)
+                                .padding(.leading,-10)
+
+                        }
+                      
                         Spacer()
                         
                     }
@@ -54,12 +67,7 @@ struct DetailView: View {
                 }
 
                 .padding(.horizontal,20)
-                
-                
-                
-                
-                
-                
+
                 Spacer()
                 
                 VStack{
@@ -68,7 +76,7 @@ struct DetailView: View {
                             Text("Opening Price")
                                 .foregroundColor(.gray)
                             Spacer()
-                            Text("Bitcoin")
+                            Text("\(coin.totalVolume)")
                                 .foregroundColor(Color.white)
                         }
                         

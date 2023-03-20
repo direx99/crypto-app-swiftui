@@ -13,8 +13,9 @@ struct Coin: Codable , Identifiable {
     let image: String
     let currentPrice: Double
     let marketCapRank: Int
+    let totalVolume : Double
     let marketCap, fullyDilutedValuation: Double?
-    let totalVolume, high24H, low24H: Double?
+    let high24H, low24H: Double?
     let priceChange24H, priceChangePercentage24H: Double
     let marketCapChange24H: Double?
     let marketCapChangePercentage24H: Double?
@@ -25,6 +26,8 @@ struct Coin: Codable , Identifiable {
     let atlDate: String?
     let lastUpdated: String?
     let sparklineIn7D: SparklineIn7D?
+    let sparklineIn1M: SparklineIn1M?
+
     let priceChangePercentage24HInCurrency: Double?
 
     enum CodingKeys: String, CodingKey {
@@ -51,12 +54,18 @@ struct Coin: Codable , Identifiable {
         case atlDate = "atl_date"
         case lastUpdated = "last_updated"
         case sparklineIn7D = "sparkline_in_7d"
+        case sparklineIn1M = "sparkline_in_1M"
         case priceChangePercentage24HInCurrency = "price_change_percentage_24h_in_currency"
     }
 }
 
 // MARK: - SparklineIn7D
 struct SparklineIn7D: Codable {
+    let price: [Double]
+}
+
+
+struct SparklineIn1M: Codable {
     let price: [Double]
 }
 
