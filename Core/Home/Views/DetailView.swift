@@ -9,24 +9,42 @@ import SwiftUI
 import Kingfisher
 
 struct DetailView: View {
+   
     let coin: Coin
-    
+  
+
+   
+  
     var body: some View {
         NavigationStack{
             
+            let val : Float = Float(coin.currentPrice)
+            let integerPart = Float(coin.currentPrice.rounded(.down))
+            let numString = String(format: "%.2f", coin.currentPrice)
+
+            let val2 = (val - integerPart) * 100
+            let priceIntString = Int(coin.currentPrice)
+            let priceFloatString = String(format: "%.0f", val2)
+
+            
+            //let integerPart2 = Int(fractionalPart.rounded(.down))
                 
             VStack{
                 Group{
                     Text("Current Price")
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity,alignment: .leading)
+                        .padding(.top,20)
+                   
+
+
                     HStack{
-                        Text("$442.")
+                        Text("$\(priceIntString)")
                             .font(.system(size: 40)).bold()
                             .foregroundColor(.white)
                         
                             .padding(.top,-5)
-                        Text("78")
+                        Text("\(priceFloatString)")
                             .font(.system(size: 30)).bold()
                             .foregroundColor(.white)
                         Spacer()
@@ -34,6 +52,7 @@ struct DetailView: View {
                     }
                     
                 }
+
                 .padding(.horizontal,20)
                 
                 
