@@ -11,7 +11,8 @@ import Kingfisher
 struct DetailView: View {
    
     let coin: Coin
-  
+    @State private var isSheetPresented = false
+
 
    
   
@@ -46,7 +47,7 @@ struct DetailView: View {
                         
                             .padding(.top,-5)
                         
-                        if(val2>1){
+                        if(val2>0.9){
                             Text("\(priceFloatString)")
                                 .font(.system(size: 30)).bold()
                                 .foregroundColor(.white)
@@ -138,13 +139,20 @@ struct DetailView: View {
                  
                     
                     HStack(spacing:10){
-                        Text("Sell")
+                        Button ("Sell"){
+                            isSheetPresented = true
+
+                        }
+                      
                             .padding()
                             .font(.title3).bold()
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity,alignment: .center)
                             .background(Color("BtnOrange"))
                             .cornerRadius(35)
+                            .sheet(isPresented: $isSheetPresented) {
+                                       BottomSheetView()
+                                   }
                         
                         Spacer()
                         Text("Buy")
@@ -169,6 +177,22 @@ struct DetailView: View {
         .navigationTitle("\(coin.name)")
     }
     
+}
+
+struct BottomSheetView: View {
+    var body: some View {
+        VStack {
+            Text("This is a bottom sheet")
+                .font(.headline)
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(radius: 5)
+        .padding()
+        .offset(y: UIScreen.main.bounds.height * 0.7)
+    }
 }
 
 //struct DetailView_Previews: PreviewProvider {

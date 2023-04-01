@@ -9,61 +9,69 @@ import SwiftUI
 
 struct HomeView: View {
     init() {
-            UINavigationBar.appearance().tintColor = .red
-        }
+        UINavigationBar.appearance().tintColor = .red
+    }
     @StateObject var viewModel = HomeModelView()
-
+    
     var body: some View {
         NavigationStack {
-
-        VStack(alignment: .center){
-            HStack{
-                
-                Spacer()
-                NavigationLink(destination: UserProfile()) {
-                    Image("UserImage")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50,height: 50)
-                        .cornerRadius(21)
-                       
-                    
-                    
-                    
-                }
-            }
-            .padding(.horizontal)
-            .padding(.bottom,30)
-                    
-            TopView()
             
+            VStack(alignment: .center){
+                HStack{
+                    
+                    Spacer()
+                    NavigationLink(destination: UserProfile()) {
+                        Image("UserImage")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50,height: 50)
+                            .cornerRadius(21)
+                        
+                        
+                        
+                        
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.bottom,30)
+                
+                TopView()
+                
                 HStack(alignment: .top){
                     Text("Top 10")
-                        .font(.title).fontWeight(.bold)
+                        .font(.title2).fontWeight(.bold)
                         .padding(.leading)
                         .padding(.bottom,5)
                         .padding(.top,30)
-                    
                     Spacer()
+                    
+                    Text("See all")
+                        .font(.caption)
+                        .padding(.trailing)
+                        .padding(.bottom,5)
+                        .padding(.top,40)
+                        .foregroundColor(.gray)
+                    
+                    
                 }
-               
                 
-            
-         
+                
+                
+                
                 ScrollView(.vertical, showsIndicators: false) {
                     
                     AllCoinView(viewModel: viewModel)
-
+                    
                     
                     
                     
                 }
-            
+                
             }
-        .background(Color("BgColor"))
-
+            .background(Color("BgColor"))
+            
         }
-
+        
     }
 }
 
