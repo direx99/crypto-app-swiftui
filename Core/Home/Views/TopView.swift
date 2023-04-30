@@ -16,7 +16,7 @@ struct TopView: View {
              
              UserData(num: 12712.78)
              ScrollView(.horizontal,showsIndicators: false){
-                 HStack(alignment:.center){
+                 HStack(alignment:.center,spacing: 10){
                      TopIcon(iconName: "arrow.down.left", iconText: "Recieve")
                      TopIcon(iconName: "arrow.up.right", iconText: "Send")
                      TopIcon(iconName: "arrow.triangle.swap", iconText: "Swap")
@@ -25,6 +25,7 @@ struct TopView: View {
                      TopIcon(iconName: "arrow.triangle.swap", iconText: "Swap")
                  }
                  .padding(.top,40)
+                 .padding(.leading,5)
                 
                  
                  
@@ -50,9 +51,9 @@ struct UserData: View {
              HStack(spacing: 0){
                  Text("$\(integerPart).")
                      .frame(height:50,alignment: .bottom)
-                     .font(.system(size: 50).weight(.bold))
+                     .font(.system(size: 50).weight(.semibold))
                      Text("\(fractionalPart)")
-                     .font(.system(size: 35).weight(.bold))
+                     .font(.system(size: 35).weight(.semibold))
                          .frame(height:50,alignment: .bottom)
                          .padding(.bottom,10)
 
@@ -105,7 +106,7 @@ struct TopIcon: View {
                
         }
         .frame(width: .infinity)
-        .padding(.leading,20)
+        .padding(.leading,10)
 
 
         

@@ -9,8 +9,17 @@ import SwiftUI
 
 struct UserProfile: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading){
+            HStack(alignment: .top){
+                Text("Dinith Hasaranga")
+                    .font(.system(size: 40))
+                
+                
+            }
+            Spacer()
+        }
     }
+
 }
 
 struct UserProfile_Previews: PreviewProvider {

@@ -152,6 +152,7 @@ struct DetailView: View {
                             .cornerRadius(35)
                             .sheet(isPresented: $isSheetPresented) {
                                        BottomSheetView()
+                                    .presentationDetents([.height(100)])
                                    }
                         
                         Spacer()
@@ -187,11 +188,8 @@ struct BottomSheetView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
-        .cornerRadius(16)
-        .shadow(radius: 5)
-        .padding()
-        .offset(y: UIScreen.main.bounds.height * 0.7)
+        .background(Color.black)
+       
     }
 }
 
