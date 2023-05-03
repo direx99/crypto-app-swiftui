@@ -38,8 +38,8 @@ struct HomeView: View {
                             .padding(.leading,10)
                             .padding(.top,2)
                             .foregroundColor(.white)
-                        Text("Dinith Hasaranga")
-                            .font(.system(size: 10)).fontWeight(.semibold)
+                        Text("Primary Account")
+                            .font(.system(size: 12))
                             .padding(.leading,10)
                             .foregroundColor(.gray)
                         
@@ -56,7 +56,7 @@ struct HomeView: View {
                         Image(systemName: "bell.badge")
                            .symbolRenderingMode(.palette)
                            .foregroundStyle(Color.red, Color.white)
-                           .font(.system(size: 20))
+                           .font(.system(size: 19))
                        
 
                     }

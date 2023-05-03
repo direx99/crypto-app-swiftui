@@ -25,7 +25,7 @@ struct CoinRowView: View {
                     KFImage(URL(string: coin.image))
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50 ,height: 50)
+                        .frame(width: 40 ,height: 40)
                     
                     //coin name info
                     VStack(alignment: .leading, spacing: 4){
@@ -37,6 +37,7 @@ struct CoinRowView: View {
                         Text("\(coin.symbol.uppercased())")
                             .font(.caption)
                             .padding(.leading,4)
+                            .padding(.top,-0)
                     }
                     .padding(.leading,2)
                     
@@ -71,7 +72,7 @@ struct CoinRowView: View {
 
             }
             .padding(.horizontal,20)
-            .padding(.vertical,20)
+            .padding(.vertical,15)
             .background(Color("CardGray"))
             .cornerRadius(25)
             .padding(.top,5)
