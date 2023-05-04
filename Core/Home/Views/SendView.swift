@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SendView: View {
     @State private  var senderId = ""
-    @State private  var verified = false
+    @State private  var verified = true
 
     var body: some View {
         VStack{
@@ -84,7 +84,6 @@ struct SendView: View {
 
         }
         .ignoresSafeArea(.keyboard, edges: .top)
-        .background(Color("BgColor"))
 
     }
 
@@ -107,12 +106,36 @@ struct NotVerifiedSender : View{
 struct VerifiedSender : View{
     var body: some View{
         VStack{
-            Text("Dinith")
+            HStack{
+             
+                Image("UserImage")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60)
+                    .cornerRadius(60)
+                Spacer()
+                                  
+                 Text("•••••••")
+                Spacer()
+
+                Image(systemName: "paperplane")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30)
+                Spacer()
+
+                Text("•••••••")
+                Spacer()
+
+                Image("sender")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60)
+                    .cornerRadius(60)
+            }
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .frame(height: 140)
-        .background(Color("CardGray"))
         .cornerRadius(10)
         .padding(.top)
 
