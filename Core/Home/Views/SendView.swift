@@ -58,6 +58,7 @@ struct SendView: View {
                             
                             VerifiedSender()
                             SendindDetails()
+                            PaymentDetails()
 
                             
                         }
@@ -84,6 +85,8 @@ struct SendView: View {
 
         }
         .ignoresSafeArea(.keyboard, edges: .top)
+        .background(Color("BgColor"))
+
 
     }
 
@@ -111,11 +114,18 @@ struct VerifiedSender : View{
                 Image("UserImage")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 60)
+                    .frame(width: 50)
                     .cornerRadius(60)
                 Spacer()
                                   
-                 Text("•••••••")
+                Group{
+                    Text("•")
+                    Text("•")
+                    Text("•")
+                    Text("•")
+                    Text("•")
+                    
+                }
                 Spacer()
 
                 Image(systemName: "paperplane")
@@ -124,17 +134,23 @@ struct VerifiedSender : View{
                     .frame(width: 30)
                 Spacer()
 
-                Text("•••••••")
+                Group{
+                    Text("•")
+                    Text("•")
+                    Text("•")
+                    Text("•")
+                    Text("•")
+                }
+
                 Spacer()
 
                 Image("sender")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 60)
+                    .frame(width: 50)
                     .cornerRadius(60)
             }
         }
-        .padding()
         .frame(maxWidth: .infinity)
         .cornerRadius(10)
         .padding(.top)
@@ -146,15 +162,56 @@ struct VerifiedSender : View{
 }
 
 struct SendindDetails : View{
+    @State private  var receiveId = "123412341234"
+    @State private  var receiverName = "Amashi Silva"
+    @State private  var receiverEmail = "amashi.silva99"
+
     var body: some View{
-        VStack{
-            Text("Dinith")
+        VStack(spacing: 10){
+            HStack{
+                Text("Reciever Id")
+                    .foregroundColor(.gray)
+                Spacer()
+                Text("..............................................................")
+                    .lineLimit(1)
+                    .padding(.top,-5)
+                    .opacity(0.1)
+
+                Spacer()
+                Text("\(receiveId)")
+                
+            }
+            HStack{
+                Text("Name")
+                    .foregroundColor(.gray)
+                Spacer()
+                Text("..............................................................")
+                    .lineLimit(1)
+                    .padding(.top,-5)
+                    .opacity(0.1)
+
+
+                Spacer()
+                Text("\(receiverName)")
+            }
+            HStack{
+                Text("Email")
+                    .foregroundColor(.gray)
+                Spacer()
+                Text(".....................................................")
+                    .lineLimit(1)
+                    .padding(.top,-5)
+                    .opacity(0.1)
+
+                Spacer()
+                Text("\(receiverEmail)")
+            }
         }
+        .font(.system(size: 14))
         .padding()
         .frame(maxWidth: .infinity)
-        .frame(height: 140)
         .background(Color("CardGray"))
-        .cornerRadius(10)
+        .cornerRadius(15)
         .padding(.top,10)
 
         
@@ -162,6 +219,110 @@ struct SendindDetails : View{
         
     }
 }
+
+struct PaymentDetails: View {
+    
+        @State private  var receiveId = "123412341234"
+    @State private  var payment  =  "$10.00"
+        @State private  var receiverName = "Amashi Silva"
+        @State private  var receiverEmail = "amashi.silva99"
+
+        var body: some View{
+            VStack(){
+                HStack{
+                    Text("Amount you want to send (min 10$)")
+                        .foregroundColor(.gray)
+                        .padding(.bottom,-20)
+                        .padding(.top)
+                        .padding(.leading)
+                        .font(.system(size: 14))
+
+                    Spacer()
+                        
+                }
+                
+                HStack{
+                    
+                    VStack{
+                        TextField("$", text: $payment)
+                            .padding(10)
+                            .foregroundColor(.white)
+                            .font(.system(size: 40))
+                            .keyboardType(.decimalPad)
+                           
+                            
+                    }
+                  
+                      
+                    Spacer()
+                    
+
+                }
+                VStack{
+                    
+                        HStack{
+                            Text("Fee")
+                                .foregroundColor(.gray)
+                            Spacer()
+                            Text("..............................................................")
+                                .lineLimit(1)
+                                .padding(.top,-5)
+                                .opacity(0.1)
+
+                            Spacer()
+                            Text("Free")
+                                .foregroundColor(.green)
+                            
+                        }
+                        HStack{
+                            Text("Duratiion")
+                                .foregroundColor(.gray)
+                            Spacer()
+                            Text("..............................................................")
+                                .lineLimit(1)
+                                .padding(.top,-5)
+                                .opacity(0.1)
+
+
+                            Spacer()
+                            Text("Just Now")
+                        }
+                        HStack{
+                            Text("Total")
+                                .foregroundColor(.gray)
+                            Spacer()
+                            Text(".....................................................")
+                                .lineLimit(1)
+                                .padding(.top,-5)
+                                .opacity(0.1)
+
+                            Spacer()
+                            Text("$10.00")
+                        }
+                    }
+                .padding(.horizontal)
+                .font(.system(size: 14))
+                
+                
+
+               Spacer()
+                Text("Send $ to Amashi")
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical,10)
+                    .background(Color.blue)
+                    .cornerRadius(50)
+                    .font(.body).fontWeight(.bold)
+                    .padding()
+
+                
+            }
+            
+
+            
+
+            
+        }
+    }
 
 
 
