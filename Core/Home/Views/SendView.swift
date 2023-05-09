@@ -10,6 +10,14 @@ import SwiftUI
 struct SendView: View {
     @State private  var senderId = ""
     @State private  var verified = true
+    
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
 
     var body: some View {
         VStack{
@@ -99,8 +107,12 @@ struct SendView: View {
 
 struct NotVerifiedSender : View{
     var body: some View{
-        VStack{
-            Text("hhhh")
+        VStack(){
+            Text("Enter valid sender ID")
+                .font(.caption2)
+                .foregroundColor(.gray)
+                .padding(.leading,10)
+                
         }
         .frame(width: .infinity)
     }
@@ -223,7 +235,9 @@ struct SendindDetails : View{
 struct PaymentDetails: View {
     
         @State private  var receiveId = "123412341234"
-    @State private  var payment  =  "$10.00"
+    @State private  var payment = 10.00
+    @State private  var fee = 5
+
         @State private  var receiverName = "Amashi Silva"
         @State private  var receiverEmail = "amashi.silva99"
 
@@ -244,8 +258,11 @@ struct PaymentDetails: View {
                 HStack{
                     
                     VStack{
-                        TextField("$", text: $payment)
-                            .padding(10)
+                        TextField("$", text: Binding<String>(
+                            get: { String(format: "%.2f", payment) },
+                            set: { if let value = Double($0) { payment = value } }
+                        ))
+                            .padding(20)
                             .foregroundColor(.white)
                             .font(.system(size: 40))
                             .keyboardType(.decimalPad)
@@ -270,8 +287,26 @@ struct PaymentDetails: View {
                                 .opacity(0.1)
 
                             Spacer()
-                            Text("Free")
-                                .foregroundColor(.green)
+                            if(payment < 50 ){
+                                Text("Free")
+                                    .foregroundColor(.green)
+                            }
+                            else if (payment < 100 )
+                            {
+                                Text("$\(fee)")
+                                    .foregroundColor(.red)
+                            }
+                            else if (payment < 200 )
+                            {
+                                Text("$\(fee*3)")
+                                    .foregroundColor(.red)
+                            }
+                            else
+                            {
+                                Text("$\(fee*5)")
+                                    .foregroundColor(.red)
+                            }
+                            
                             
                         }
                         HStack{
@@ -297,7 +332,8 @@ struct PaymentDetails: View {
                                 .opacity(0.1)
 
                             Spacer()
-                            Text("$10.00")
+                            Text("$\(String(format: "%.2f",(payment+Double(fee))))")
+                        
                         }
                     }
                 .padding(.horizontal)

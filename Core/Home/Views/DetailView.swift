@@ -74,10 +74,10 @@ struct DetailView: View {
                 VStack{
                     Group{
                         HStack{
-                            Text("Opening Price")
+                            Text("Market Cap Rank")
                                 .foregroundColor(.gray)
                             Spacer()
-                            Text("\(coin.totalVolume)")
+                            Text("\(coin.marketCapRank)")
                                 .foregroundColor(Color.white)
                         }
                         
