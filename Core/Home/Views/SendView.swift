@@ -300,6 +300,7 @@ struct PaymentDetails: View {
                             {
                                 Text("$\(fee*3)")
                                     .foregroundColor(.red)
+                                
                             }
                             else
                             {
@@ -332,7 +333,18 @@ struct PaymentDetails: View {
                                 .opacity(0.1)
 
                             Spacer()
-                            Text("$\(String(format: "%.2f",(payment+Double(fee))))")
+                            if (payment < 50 ){
+                                Text("$\(String(format: "%.2f",(payment+0)))")
+                            }
+                            else if (payment < 100 ){
+                                Text("$\(String(format: "%.2f",(payment+5)))")
+                            }
+                            else if (payment < 200 ){
+                                Text("$\(String(format: "%.2f",(payment+15)))")
+                            }
+                            else {
+                                Text("$\(String(format: "%.2f",(payment+25)))")
+                            }
                         
                         }
                     }

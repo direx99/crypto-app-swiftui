@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ReceiveView: View {
     @State private var textInput: String = ""
+    @State private var verifyToken: Bool = true
+
 
     var body: some View {
         NavigationStack{
@@ -21,24 +23,48 @@ struct ReceiveView: View {
                         .cornerRadius(10)
                     
                     
-                    if (textInput == "") || (textInput.count < 24){
+                    if (textInput == "") || (textInput.count < 4){
                         Image(systemName: "checkmark.circle.fill")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(Color.gray, Color("CardGray"))
-                        .font(.system(size: 40))
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(Color.gray, Color("CardGray"))
+                            .font(.system(size: 40))
                     }
                     else{
-                        Image(systemName: "checkmark.circle.fill")
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(Color.white, Color.blue)
-                        .font(.system(size: 40))
+                        Button(action: {
+                            if (textInput=="1234"){
+                                verifyToken = true
+                            }
+                            else{
+                                verifyToken = false
+                                
+                                
+                            }
+                        }, label: {
+                            Image(systemName: "arrow.right.circle.fill")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(Color.white, Color.blue)
+                                .font(.system(size: 36))
+                        })
                     }
-
-                        
                     
+                   
+                }
+                    
+                if (verifyToken == true){
+                    Text("Transaction Received")
+                        .padding(.top,60)
+                    Image(systemName: "checkmark.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(Color.white, Color("greencircle"))
+                        
+                        .padding(90)
+
                 }
                 
             }
+            
             .padding()
             Spacer()
 
