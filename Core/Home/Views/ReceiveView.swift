@@ -51,8 +51,7 @@ struct ReceiveView: View {
                 }
                     
                 if (verifyToken == true){
-                    Text("Transaction Received")
-                        .padding(.top,60)
+                  
                     Image(systemName: "checkmark.circle.fill")
                         .resizable()
                         .scaledToFit()
@@ -60,6 +59,18 @@ struct ReceiveView: View {
                         .foregroundStyle(Color.white, Color("greencircle"))
                         
                         .padding(90)
+                    Text("100 USD Received")
+                        .font(.system(size: 30))
+                    Text("From Amashi Silva")
+                        .font(.system(size: 20))
+                    
+                    Spacer()
+                    Text("Done")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(15)
+
 
                 }
                 
