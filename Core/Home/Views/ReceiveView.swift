@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReceiveView: View {
     @State private var textInput: String = ""
-    @State private var verifyToken: Bool = true
+    @State private var verifyToken: Bool = false
 
 
     var body: some View {
@@ -51,18 +51,22 @@ struct ReceiveView: View {
                 }
                     
                 if (verifyToken == true){
-                  
+                    Spacer()
+
                     Image(systemName: "checkmark.circle.fill")
                         .resizable()
                         .scaledToFit()
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(Color.white, Color("greencircle"))
                         
-                        .padding(90)
+                        .padding(.horizontal,90)
+                    Spacer()
+
                     Text("100 USD Received")
                         .font(.system(size: 30))
                     Text("From Amashi Silva")
                         .font(.system(size: 20))
+                        .foregroundColor(.gray)
                     
                     Spacer()
                     Text("Done")
@@ -70,6 +74,7 @@ struct ReceiveView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.blue)
                         .cornerRadius(15)
+                    
 
 
                 }
