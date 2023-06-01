@@ -17,7 +17,7 @@ struct ReceiveView: View {
             VStack{
                 HStack{
                     TextField("Enter token here", text: $textInput)
-                        .padding()
+                        .padding(10)
                         .foregroundColor(.white)
                         .background(Color("CardGray"))
                         .cornerRadius(10)
@@ -28,6 +28,7 @@ struct ReceiveView: View {
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(Color.gray, Color("CardGray"))
                             .font(.system(size: 40))
+
                     }
                     else{
                         Button(action: {
@@ -36,6 +37,7 @@ struct ReceiveView: View {
                             }
                             else{
                                 verifyToken = false
+
                                 
                                 
                             }
@@ -78,11 +80,20 @@ struct ReceiveView: View {
 
 
                 }
+                else{
+                    RecentTransaction()
+
+                }
+             
+
                 
             }
             
             .padding()
+
             Spacer()
+            
+            
 
             
         }
@@ -93,6 +104,49 @@ struct ReceiveView: View {
 
         
     }
+}
+
+
+
+struct RecentTransaction : View {
+    var body: some View{
+        VStack{
+            HStack{
+                Text("Recent Transactions")
+                    .foregroundColor(.gray)
+                Spacer()
+            }
+            VStack{
+                HStack{
+                    Image("sender")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40)
+                        .cornerRadius(40)
+                    VStack(alignment: .leading){
+                        Text("Sender Payment")
+                        Text("2023 May 10")
+                            .font(.system(size: 12))
+                        
+
+                    }
+                    .padding(.leading,10)
+                    Spacer()
+                    Text("$230")
+                    
+                    
+                }
+            }
+            .padding(.horizontal)
+
+            
+        }
+        
+        .padding(.horizontal)
+
+
+    }
+        
 }
 
 struct ReceiveView_Previews: PreviewProvider {

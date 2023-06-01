@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SendView: View {
     @State private  var senderId = ""
-    @State private  var verified = true
+    @State private  var verified = false
     
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
