@@ -82,6 +82,11 @@ struct ReceiveView: View {
                 }
                 else{
                     RecentTransaction()
+                    RecentTransaction()
+                    RecentTransaction()
+                    RecentTransaction()
+                    RecentTransaction()
+
 
                 }
              
@@ -111,11 +116,7 @@ struct ReceiveView: View {
 struct RecentTransaction : View {
     var body: some View{
         VStack{
-            HStack{
-                Text("Recent Transactions")
-                    .foregroundColor(.gray)
-                Spacer()
-            }
+           
             VStack{
                 HStack{
                     Image("sender")
@@ -137,7 +138,6 @@ struct RecentTransaction : View {
                     
                 }
             }
-            .padding(.horizontal)
 
             
         }
