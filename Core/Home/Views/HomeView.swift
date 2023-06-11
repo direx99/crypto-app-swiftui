@@ -16,6 +16,10 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             
+           
+            
+            
+            
             VStack(alignment: .center){
                 HStack(alignment: .top){
                     
@@ -105,7 +109,8 @@ struct HomeView: View {
             .background(Color("BgColor"))
             
         }
-        
+        .navigationBarHidden(true) // Hide the
+
     }
 }
 
